@@ -97,3 +97,77 @@
 
 
 //segunda entrega
+//STORAGE
+
+const productos = [
+  {
+  id: 1,
+  nombre: "buzo",
+  talle: "s",
+  color: "negro",
+  precio: 100,
+  stock: 50
+},
+{
+   id:2,
+  nombre: "campera",
+  talle: "m",
+  color: "beige",
+  precio: 150,
+  stock: 100
+},
+{
+  id:3,
+  nombre:"remeras", 
+  talle: "s",
+  color: "blancs",
+  precio: 50,
+  stock: 20
+},
+{
+  id:4,
+  nombre:"pantalon",
+  talle: 40,
+  color: "azul",
+  precio: 80,
+  stock: 15
+},
+{
+    id:5,
+  nombre:"short",
+  talle: "l",
+  color: "gris",
+  precio: 60,
+  stock: 5
+},]
+const cartProducts = []
+let productscontainer = document.getElementById("products-container")
+function renderproductos(productsArray) {
+  productsArray.forEach((producto) => {
+    const card = document.createElement("div")
+    card.innerHTML=`<h3>${producto.nombre}</h3>
+                  <p>${producto.talle}</p>
+                  <p>${producto.color}</p>
+                  <P>${producto.precio}</p>
+                  <button class="productoAgregar" id=${producto.id}>Agregar</button>`
+    productscontainer.appendChild(card)
+    
+  })
+  addToCardButton()
+}
+renderproductos(productos)
+
+
+function addToCardButton() {
+  addButton = document.querySelectorAll(".productoAgregar")
+  addButton.forEach(button => {
+    button.onclick = (e) => {
+      const productId = e.currentTarget.id
+      const selectedProduct = productos.find (producto => producto.id == productId)
+      cartProducts.push(selectedProduct)
+      console.log(cartProducts)
+
+      localStorage.setItem("cardproducts", JSON.stringify(cartProducts))
+    }
+})
+}
