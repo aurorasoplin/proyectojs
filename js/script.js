@@ -101,12 +101,14 @@
 
 const productos = [
   {
+  
   id: 1,
   nombre: "buzo",
   talle: "s",
   color: "negro",
   precio: 100,
-  stock: 50
+  stock: 50,
+  
 },
 {
    id:2,
