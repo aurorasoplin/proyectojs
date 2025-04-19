@@ -103,50 +103,50 @@ const productos = [
   {
     id: 1,
     nombre: "buzo",
-    talle: "s",
-    color: "negro",
-    precio: 100,
-    stock: 50,
+    talle: "talle:S",
+    color: "color:negro",
+    precio: "precio:$100",
+    stock: "stock:50 unidades",
     imagen: "../img/hom-buzo.jpg",
   },
   {
     id: 2,
     nombre: "campera",
-    talle: "m",
-    color: "beige",
-    precio: 150,
-    stock: 100,
+    talle: "talle:M",
+    color: "color:beige",
+    precio: "precio:$150",
+    stock: "stock:100 unidades",
     imagen: "../img/muj-post2.jpg",
   },
   {
     id: 3,
     nombre: "remeras",
-    talle: "s",
-    color: "blancs",
-    precio: 50,
-    stock: 20,
+    talle: "talle:S",
+    color: "color:blanco",
+    precio: "precio:$50",
+    stock: "stock:20 unidades",
     imagen: "../img/hom-remera.jpg",
   },
   {
     id: 4,
     nombre: "pantalon",
-    talle: 40,
-    color: "azul",
-    precio: 80,
-    stock: 15,
+    talle: "talle:40",
+    color: "color:azul",
+    precio: "precio:$80",
+    stock: "stock:15 unidades ",
     imagen: "../img/muj-palazo.jpg",
   },
   {
     id: 5,
     nombre: "short",
-    talle: "l",
-    color: "gris",
-    precio: 60,
-    stock: 5,
+    talle: "talle:L",
+    color: "color:gris",
+    precio: "precio:$60",
+    stock: "stock:5 unidades",
     imagen: "../img/hom-short.jpg",
   },
 ];
-const cartProducts = []
+const listaProductos = []
 let contenedorProductos = document.getElementById("contenedor-productos")
 function renderproductos(listadoArray) {
   listadoArray.forEach((producto) => {
@@ -156,7 +156,7 @@ function renderproductos(listadoArray) {
                   <p>${producto.talle}</p>
                   <p>${producto.color}</p>
                   <P>${producto.precio}</p>
-                  <button class="agregarProductos" id=${producto.id}>Agregar</button>`;
+                  <button class="agregarProductos" id=${producto.id}>Agregar al carrito</button>`;
     contenedorProductos.appendChild(card)
     
   })
@@ -171,14 +171,12 @@ function addToCardButton() {
     button.onclick = (e) => {
       const productId = e.currentTarget.id
       const selectedProduct = productos.find (producto => producto.id == productId)
-      cartProducts.push(selectedProduct)
-      console.log(cartProducts)
+      listaProductos.push(selectedProduct)
+      console.log(listaProductos)
 
-      localStorage.setItem("cartproducts", JSON.stringify(cartProducts))
+      localStorage.setItem("listaProductos", JSON.stringify(listaProductos))
     }
 })
 }
-
-const imagen = document.getElementById("imagen")
 
 
