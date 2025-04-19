@@ -143,16 +143,16 @@ const productos = [
   stock: 5
 },]
 const cartProducts = []
-let productscontainer = document.getElementById("products-container")
-function renderproductos(productsArray) {
-  productsArray.forEach((producto) => {
+let contenedorProductos = document.getElementById("contenedor-productos")
+function renderproductos(listadoArray) {
+  listadoArray.forEach((producto) => {
     const card = document.createElement("div")
     card.innerHTML=`<h3>${producto.nombre}</h3>
                   <p>${producto.talle}</p>
                   <p>${producto.color}</p>
                   <P>${producto.precio}</p>
-                  <button class="productoAgregar" id=${producto.id}>Agregar</button>`
-    productscontainer.appendChild(card)
+                  <button class="agregarProductos" id=${producto.id}>Agregar</button>`
+    contenedorProductos.appendChild(card)
     
   })
   addToCardButton()
@@ -161,7 +161,7 @@ renderproductos(productos)
 
 
 function addToCardButton() {
-  addButton = document.querySelectorAll(".productoAgregar")
+  addButton = document.querySelectorAll(".agregarProductos")
   addButton.forEach(button => {
     button.onclick = (e) => {
       const productId = e.currentTarget.id
@@ -169,7 +169,7 @@ function addToCardButton() {
       cartProducts.push(selectedProduct)
       console.log(cartProducts)
 
-      localStorage.setItem("cardproducts", JSON.stringify(cartProducts))
+      localStorage.setItem("cartproducts", JSON.stringify(cartProducts))
     }
 })
 }
