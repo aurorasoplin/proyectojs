@@ -101,57 +101,62 @@
 
 const productos = [
   {
-  
-  id: 1,
-  nombre: "buzo",
-  talle: "s",
-  color: "negro",
-  precio: 100,
-  stock: 50,
-  
-},
-{
-   id:2,
-  nombre: "campera",
-  talle: "m",
-  color: "beige",
-  precio: 150,
-  stock: 100
-},
-{
-  id:3,
-  nombre:"remeras", 
-  talle: "s",
-  color: "blancs",
-  precio: 50,
-  stock: 20
-},
-{
-  id:4,
-  nombre:"pantalon",
-  talle: 40,
-  color: "azul",
-  precio: 80,
-  stock: 15
-},
-{
-    id:5,
-  nombre:"short",
-  talle: "l",
-  color: "gris",
-  precio: 60,
-  stock: 5
-},]
+    id: 1,
+    nombre: "buzo",
+    talle: "s",
+    color: "negro",
+    precio: 100,
+    stock: 50,
+    imagen: "../img/hom-buzo.jpg",
+  },
+  {
+    id: 2,
+    nombre: "campera",
+    talle: "m",
+    color: "beige",
+    precio: 150,
+    stock: 100,
+    imagen: "../img/muj-post2.jpg",
+  },
+  {
+    id: 3,
+    nombre: "remeras",
+    talle: "s",
+    color: "blancs",
+    precio: 50,
+    stock: 20,
+    imagen: "../img/hom-remera.jpg",
+  },
+  {
+    id: 4,
+    nombre: "pantalon",
+    talle: 40,
+    color: "azul",
+    precio: 80,
+    stock: 15,
+    imagen: "../img/muj-palazo.jpg",
+  },
+  {
+    id: 5,
+    nombre: "short",
+    talle: "l",
+    color: "gris",
+    precio: 60,
+    stock: 5,
+    imagen: "../img/hom-short.jpg",
+  },
+];
 const cartProducts = []
 let contenedorProductos = document.getElementById("contenedor-productos")
 function renderproductos(listadoArray) {
   listadoArray.forEach((producto) => {
     const card = document.createElement("div")
-    card.innerHTML=`<h3>${producto.nombre}</h3>
+    card.innerHTML = `<ul>${producto.imagen}</ul>
+                  <h3>${producto.nombre}</h3>
                   <p>${producto.talle}</p>
                   <p>${producto.color}</p>
                   <P>${producto.precio}</p>
-                  <button class="agregarProductos" id=${producto.id}>Agregar</button>`
+                  <button class="agregarProductos" id=${producto.id}>Agregar</button>`;
     contenedorProductos.appendChild(card)
     
   })
@@ -173,3 +178,7 @@ function addToCardButton() {
     }
 })
 }
+
+const imagen = document.getElementById("imagen")
+
+
