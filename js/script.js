@@ -107,16 +107,16 @@ const productos = [
     color: "color:negro",
     precio: "precio:$100",
     stock: "stock:50 unidades",
-    imagen: "../img/hom-buzo.jpg",
+    imagen: "./img/hom-buzo.jpg",
   },
   {
     id: 2,
-    nombre: "campera",
+    nombre: "blusa",
     talle: "talle:M",
     color: "color:beige",
     precio: "precio:$150",
     stock: "stock:100 unidades",
-    imagen: "../img/muj-post2.jpg",
+    imagen: "./img/muj-arruche.jpg",
   },
   {
     id: 3,
@@ -125,7 +125,7 @@ const productos = [
     color: "color:blanco",
     precio: "precio:$50",
     stock: "stock:20 unidades",
-    imagen: "../img/hom-remera.jpg",
+    imagen: "./img/muj-arruche.jpg",
   },
   {
     id: 4,
@@ -134,7 +134,7 @@ const productos = [
     color: "color:azul",
     precio: "precio:$80",
     stock: "stock:15 unidades ",
-    imagen: "../img/muj-palazo.jpg",
+    imagen: "./img/muj-palazo.jpg",
   },
   {
     id: 5,
@@ -143,7 +143,7 @@ const productos = [
     color: "color:gris",
     precio: "precio:$60",
     stock: "stock:5 unidades",
-    imagen: "../img/hom-short.jpg",
+    imagen: "./img/hom-short.jpg",
   },
 ];
 const listaProductos = []
@@ -151,7 +151,7 @@ let contenedorProductos = document.getElementById("contenedor-productos")
 function renderproductos(listadoArray) {
   listadoArray.forEach((producto) => {
     const card = document.createElement("div")
-    card.innerHTML = `<ul>${producto.imagen}</ul>
+    card.innerHTML = `<img src=${producto.imagen}>
                   <h3>${producto.nombre}</h3>
                   <p>${producto.talle}</p>
                   <p>${producto.color}</p>
