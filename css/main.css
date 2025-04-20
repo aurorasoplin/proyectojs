@@ -1,26 +1,25 @@
-body{
-    background:rgb(224, 224, 169);
+body {
+  background: rgb(224, 224, 169);
 }
-.titulo{
-     text-align: center;
-     color: rgb(144, 101, 184);
+.titulo {
+  text-align: center;
+  color: rgb(144, 101, 184);
+}
+section {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  gap: 30px;
+  align-content: center;
+  overflow: hidden;
+  object-fit: cover;
+}
 
+h2 {
+  text-align: right;
 }
-section{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    gap: 30px;
-    align-content: center;
-    overflow: hidden;
-    object-fit: cover;
+.id {
+  background-color: rgb(121, 85, 60);
 }
-
-h2{
-    text-align: right;
-}
-.id{
-    background-color: rgb(121, 85, 60);
-}
-.agregarProductos{
-    color: rgb(107, 70, 42);
+.agregarProductos {
+  color: rgb(107, 70, 42);
 }
