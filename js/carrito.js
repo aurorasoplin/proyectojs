@@ -1,62 +1,79 @@
-let cartStorage = localStorage.getItem("listaProductos");
-cartStorage = JSON.parse(cartStorage);
+let tarjetaStorage = localStorage.getItem("productosEnCarrito")
+tarjetaStorage = JSON.parse(tarjetaStorage)
 
-let cartContainer = document.getElementById("cart-section");
+let carritoProceso = document.getElementById("carrito")
 
-function renderCarrito(cartItems) {
-  cartItems.forEach((producto) => {
-    const card = document.createElement("div");
-    card.innerHTML = `
+function crearCarrito(carritoLleno) {
+  if (carritoLleno) {
+    carritoLleno.forEach((producto) => {
+    
+      const tarjetaCarrito = document.createElement("div")
+      tarjetaCarrito.innerHTML = ` 
                      <h3>${producto.nombre}</h3>
                      <p>${producto.talle}</p>
                      <p>${producto.color}</p>
-                     <P>${producto.precio}</p>`;
-    cartContainer.appendChild(card);
-    
-  });
-}
-renderCarrito(cartStorage);
-
-const productosAgregados = JSON.parse(localStorage.getItem("productosAgregados")) || []
-if (productosAgregados.length > 0) {
-  imprimirproductosAgregadosEnHTML(productosAgregados);
-}
-const productosPrecio = [
-  {
-    nombre: "buzo",
-    precio: 100
-    
-  },
-  {
-   
-    nombre: "blusa",
-    precio: 150
-  },
-  {
-    
-    nombre: "remeras", precio: 50,
-    
-  },
-  {
-    nombre: "pantalon",
-    precio: 80,
-  },
-  {
-    nombre: "short",
-    precio: 60
+                     <P>precio:$${producto.precio}</p>
+                     <p>cantidad: ${producto.cantidad}</p>
+                     <button class="menos">-</button>
+                     <span class="cantidad">0</span>
+                     <button class="mas">+</button>
+                     `
+      carritoProceso.appendChild(tarjetaCarrito)
+      
+    })
   }
-]
-
-
-const precioProducto = productosPrecio.map(producto => producto.precio)
-const totalProductos = precioProducto.reduce((acumulador, precio) => acumulador + precio, 0)
-const productoAgregado = []
-function renderprecios(preciosArray) {
-  preciosArray.forEach((producto) => {
-    const total = document.createElement("header")
-    total.innerHTML = `<h4>total:${totalProductos}</h4>`
-    cartContainer.appendChild(total)
-    localStorage.setItem("productoAgregado", JSON.stringify(productoAgregado));
-  })
+  // else if (elegido === elegido) {
+  //   // const cantidades = productosEnCarrito.length
+  //   // const masproductos = productos.map(producto => producto.id === producto.id)
+  //     productosEnCarrito.cantidad++
+    
+  //   }
+ else  {
+    let textoVacio = document.getElementById("carrito-Vacio")
+    const tuCarrito = document.createElement("p")
+    tuCarrito.innerHTML = `<p>tu carrito esta vacio</p>`
+    textoVacio.appendChild(tuCarrito)
 }
-renderprecios(cartStorage)
+  eliminarTarjetas()
+};
+crearCarrito(tarjetaStorage)
+
+
+
+let productosEliminados = []
+
+function eliminarTarjetas () {
+eliminarCarrito = document.querySelectorAll(".eliminar")
+  eliminarCarrito.forEach (botoneliminar => {
+    botoneliminar.onclick = (e) => {
+    const productoEliminado = e.currentTarget.id
+      const eliminado = productosEliminados.filter(producto => producto.id == productoEliminado)
+       productosEliminados.slice(eliminado)
+ 
+      localStorage.removeItem("productosEnCarrito")
+    }
+  })
+  
+}
+eliminarTarjetas()
+
+let vaciado = document.getElementById("vaciar")
+const vaciarCarrito = document.createElement("div")
+vaciarCarrito.innerHTML = `<button class="eliminar" onclik= "eliminarTarjetas()">vaciar carrito</button>`
+vaciado.appendChild(vaciarCarrito)
+vaciado.addEventListener("click", eliminarTarjetas)
+
+
+
+const totalCarrito = tarjetaStorage.reduce((contador, tarjetaStorage) => contador + tarjetaStorage.precio * tarjetaStorage.cantidad , 0)
+let total = document.getElementById("total")
+const textoCarrito= document.createElement("div")
+textoCarrito.innerHTML = `<div>total es: ${totalCarrito} </div>`
+  total.appendChild(textoCarrito)
+
+
+
+
+
+
+

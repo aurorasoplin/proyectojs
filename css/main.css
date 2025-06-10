@@ -1,9 +1,9 @@
 body {
-  background: rgb(224, 224, 169);
+  background: rgb(243, 243, 207);
 }
 .titulo {
   text-align: center;
-  color: rgb(144, 101, 184);
+  color: rgb(52, 3, 95);
 }
 section {
   display: grid;
@@ -12,8 +12,12 @@ section {
   align-content: center;
   overflow: hidden;
   object-fit: cover;
+  justify-content: center;
 }
-
+#tarjetasproductos{
+  justify-content: center;
+  text-align: center;
+}
 h2 {
   text-align: right;
 }
@@ -22,4 +26,21 @@ h2 {
 }
 .agregarProductos {
   color: rgb(107, 70, 42);
+}
+#vaciar {
+  
+  text-align: right;
+}
+#total {
+  text-align: right;
+  text-decoration:black;
+  font-size: larger;
+}
+#carrito{
+  text-align: center;
+}
+
+ #carrito-Vacio {
+  font-size: larger;
+  text-align: center;
 }
